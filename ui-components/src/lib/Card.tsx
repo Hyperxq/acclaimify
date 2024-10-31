@@ -1,3 +1,4 @@
+import React from 'react';
 import { AppreciationData } from "./interfaces/data.interface";
 
 export const Card = (formData: AppreciationData) => {
