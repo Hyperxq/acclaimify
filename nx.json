@@ -94,5 +94,13 @@
   },
   "cacheableOperations": [
     "build"
-  ]
+  ],
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "useDaemonProcess": false
+      }
+    }
+  }
 }
