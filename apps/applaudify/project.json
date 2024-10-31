@@ -1,0 +1,9 @@
+{
+  "name": "applaudify",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/applaudify/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project applaudify --web",
+  "targets": {}
+}
