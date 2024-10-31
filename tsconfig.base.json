@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@applaudify/ui-components": ["ui-components/src/*"]
+      "@applaudify/ui-components": ["ui-components/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

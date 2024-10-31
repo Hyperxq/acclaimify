@@ -5,6 +5,6 @@ export default function CardContainer() {
   const { formData } = useFormContext();
 
   return (
-    <Card formData={formData} />
+    <Card {...formData} />
   );
 }

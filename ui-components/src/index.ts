@@ -1,2 +1,2 @@
-export * from './lib/ui-components';
 export * from './lib/Card';
+export * from './lib/interfaces/data.interface';
