@@ -4,7 +4,7 @@ import { AppreciationData } from "./interfaces/data.interface";
 export const Card = (formData: AppreciationData) => {
 
   return (
-    <div className="card mx-auto mt-8 max-w-sm rounded-lg bg-gray-100 p-4 shadow-md">
+    <div id="card" className="max-w-md p-6 bg-gray-100 rounded-lg shadow-md" style={{ minWidth: '800px' }}>
       <h2 className="mb-4 text-xl font-semibold text-gray-800">Appreciation Summary</h2>
       <p>
         <strong>Achiever’s Name:</strong> {formData.achieverName || 'N/A'}
