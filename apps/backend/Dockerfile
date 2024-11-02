@@ -9,6 +9,7 @@ COPY package.json pnpm-lock.yaml ./
 
 # Install pnpm globally
 RUN npm install -g pnpm
+RUN npm install -g nx
 
 # Install dependencies (but ignore the devDependencies for production)
 RUN pnpm install --frozen-lockfile
@@ -17,7 +18,7 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 
 # Build only the backend app
-RUN nx run backend:build:production --configuration=production
+RUN ./node_modules/.bin/nx run backend:build:production --configuration=production
 
 # Stage 2: Create a smaller image with only the build output
 FROM node:18-slim AS runner
