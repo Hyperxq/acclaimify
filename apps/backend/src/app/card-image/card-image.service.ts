@@ -1,13 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import * as puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-extra';
 import * as ReactDOMServer from 'react-dom/server';
 import React from 'react';
 import { AppreciationData, Card } from '@applaudify/ui-components';
 import * as fs from 'fs';
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 
 @Injectable()
 export class CardImageService {
   async generateCardImage(cardData: AppreciationData) {
+    puppeteer.use(StealthPlugin());
+
     const browser = await puppeteer.launch({
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
