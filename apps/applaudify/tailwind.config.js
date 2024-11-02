@@ -12,7 +12,11 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname), flowbite.content()
   ],
   theme: {
-    extend: {},
+    extend: {
+      // fontFamily: {
+      //   sans: ['Poppins', 'sans-serif'],
+      // },
+    },
   },
   plugins: [flowbite.plugin()],
 };

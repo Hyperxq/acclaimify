@@ -3,6 +3,7 @@ import * as puppeteer from 'puppeteer';
 import * as ReactDOMServer from 'react-dom/server';
 import React from 'react';
 import { AppreciationData, Card } from '@applaudify/ui-components';
+import * as fs from 'fs';
 
 @Injectable()
 export class CardImageService {
@@ -13,8 +14,8 @@ export class CardImageService {
     const page = await browser.newPage();
 
     await page.setViewport({
-      width: 1600, // Adjust width to your desired size
-      height: 900, // Adjust height as needed for content
+      width: 975, // Adjust width to your desired size
+      height: 696, // Adjust height as needed for content
       deviceScaleFactor: 2, // Increase resolution
     });
 
@@ -23,11 +24,14 @@ export class CardImageService {
       React.createElement(Card, cardData)
     );
 
+    const styleCSS = fs.readFileSync('dist/ui-components/style.css', 'utf8');
+
     const fullHtml = `
       <html>
         <head>
           <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
           <link href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" rel="stylesheet">
+           <style>${styleCSS}</style>
           <style>
             #card {
               margin: 0 auto;
@@ -43,6 +47,8 @@ export class CardImageService {
         </body>
       </html>
     `;
+
+    fs.writeFileSync('debug.html', fullHtml);
 
     try {
       await page.setContent(fullHtml, { waitUntil: 'networkidle0' });
