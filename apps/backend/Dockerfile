@@ -17,7 +17,7 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 
 # Build only the backend app
-RUN pnpx nx run backend:build:production --configuration=production
+RUN nx run backend:build:production --configuration=production
 
 # Stage 2: Create a smaller image with only the build output
 FROM node:18-slim AS runner
