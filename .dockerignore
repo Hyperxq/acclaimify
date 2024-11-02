@@ -1,0 +1,13 @@
+# Ignore everything
+**
+
+# Allow only necessary folders and files
+!/apps/backend/
+!/libs/
+!nx.json
+!package.json
+!pnpm-lock.yaml
+!tsconfig.base.json
+
+# Ignore all node_modules, except the ones in the Dockerfile build stage
+**/node_modules
