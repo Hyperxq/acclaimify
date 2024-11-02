@@ -2,7 +2,10 @@
   "name": "@applaudify/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "postinstall:backend": "puppeteer install",
+    "build:backend": "pnpm run postinstall:backend && pnpm nx run backend:build"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
