@@ -6,7 +6,7 @@ import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
 
 export default defineConfig({
   root: __dirname,
-  base: "applaudify",
+  base: "/applaudify",
   cacheDir: '../../node_modules/.vite/apps/applaudify',
   server: {
     port: 4200,
