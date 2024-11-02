@@ -31,7 +31,7 @@ jobs:
         run: pnpm install
 
       - name: Build Vite frontend app
-        run: pnpm nx run applaudify:build --prod
+        run: pnpm nx run applaudify:build --configuration=production
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

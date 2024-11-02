@@ -3,6 +3,8 @@ import { TextInput, Textarea, Label, FileInput } from 'flowbite-react';
 import { useFormContext } from './useFormContext';
 import axios from 'axios';
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export default function FormComponent() {
   const { formData, setFormData } = useFormContext();
 
@@ -23,7 +25,7 @@ export default function FormComponent() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/api/cards/generate', formData, {
+      const response = await axios.post(`${apiUrl}/api/cards/generate`, formData, {
         responseType: 'blob', // Ensures response is handled as binary data
       });
 
