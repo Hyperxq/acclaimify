@@ -11,7 +11,17 @@ import { AppModule } from './app/app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
-  app.enableCors();
+  if (process.env.NODE_ENV === 'production') {
+    app.enableCors({
+      origin: [
+        'https://hyperxq.github.io/applaudify',
+        'https://hyperxq.github.io',
+      ],
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    });
+  } else {
+    app.enableCors(); // Enable CORS for all origins in development
+  }
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3000;
   await app.listen(port);
