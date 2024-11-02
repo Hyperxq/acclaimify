@@ -11,13 +11,13 @@ COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm
 
 # Install dependencies (but ignore the devDependencies for production)
-RUN pnpm install --frozen-lockfile --prod
+RUN pnpm install --frozen-lockfile
 
 # Copy the entire monorepo into the container
 COPY . .
 
 # Build only the backend app
-RUN pnpx nx run applaudify:build:production --configuration=production
+RUN pnpx nx run backend:build:production --configuration=production
 
 # Stage 2: Create a smaller image with only the build output
 FROM node:18-slim AS runner
