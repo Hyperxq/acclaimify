@@ -17,7 +17,7 @@ RUN pnpm install --frozen-lockfile --prod
 COPY . .
 
 # Build only the backend app
-RUN pnpx nx run applaudify:build:production
+RUN pnpx nx run applaudify:build:production --configuration=production
 
 # Stage 2: Create a smaller image with only the build output
 FROM node:18-slim AS runner
