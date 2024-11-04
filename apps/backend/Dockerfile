@@ -28,9 +28,6 @@ RUN ls -la /app/dist/apps/backend/main.js
 # Stage 2: Create a smaller image with only the build output
 FROM node:18-slim AS runner
 
-# Set working directory in the final container
-WORKDIR /app
-
 # Expose the port that the backend service will run on
 EXPOSE 3000
 
