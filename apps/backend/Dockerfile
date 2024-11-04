@@ -20,10 +20,10 @@ COPY . .
 # Build the UI library first
 RUN pnpx nx run ui-components:build --verbose
 
-RUN ls -R /app
-
 # Now build the backend app, which depends on the UI library
 RUN pnpx nx run backend:build:production --configuration=production --verbose
+
+RUN test -f /app/dist/apps/backend/main.js || (echo "Backend main.js not found!" && exit 1)
 
 # Stage 2: Create a smaller image with only the build output
 FROM node:18-slim AS runner
@@ -35,4 +35,4 @@ WORKDIR /app
 EXPOSE 3000
 
 # Start the backend service
-CMD ["node", "dist/main.js"]
+CMD ["node", "/app/dist/apps/backend/main.js"]
