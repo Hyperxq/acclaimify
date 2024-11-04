@@ -1,13 +1,28 @@
-# Ignore everything
+# Ignore everything by default
 **
 
-# Allow only necessary folders and files
+# Allow backend application files
 !/apps/backend/
-!/libs/
+
+# Allow libraries
+!/ui-components/
+
+# Allow necessary config files in the root
 !nx.json
+!eslint.config.js
+!jest.preset.js
+!jest.config.ts
 !package.json
 !pnpm-lock.yaml
 !tsconfig.base.json
+!vitest.workspace.ts
+
+# Allow .env files if needed (optional, adjust as needed)
+!.env
+!.env.production
+
+# Ensure the Dockerfile is included if it’s in the root or other folders
+!Dockerfile
 
 # Ignore all node_modules, except the ones in the Dockerfile build stage
 **/node_modules

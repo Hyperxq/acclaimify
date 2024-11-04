@@ -8,7 +8,9 @@
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "options": {
         "buildTarget": "backend:build",
         "runBuildTargetDependencies": false
@@ -23,7 +25,9 @@
       }
     },
     "docker-build": {
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "command": "docker build -f apps/backend/Dockerfile . -t backend"
     }
   }
