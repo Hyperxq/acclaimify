@@ -33,4 +33,4 @@ WORKDIR /app
 EXPOSE 3000
 
 # Start the backend service
-CMD ["node", "--trace-warnings", "dist/apps/backend/main.js"]
+ENTRYPOINT ["node", "dist/apps/backend/main.js"]
