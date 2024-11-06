@@ -14,7 +14,7 @@ function App() {
             <h1 id="title" className="space-mono-regular">Applaudify</h1>
             <h3 id="slogan" className="poppins-regular">Honor the Effort, Capture the Moment</h3>
           </header>
-          <CardContainer classList="w-fit lg:min-w-[479px] max-w-[479px]">
+          <CardContainer id="form" classList="w-fit lg:min-w-[479px] max-w-[479px]">
             <FormComponent />
           </CardContainer>
         </section>

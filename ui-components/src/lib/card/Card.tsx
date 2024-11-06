@@ -11,7 +11,7 @@ export const Card = ({
 }: Partial<AppreciationData>) => {
 
   return (
-    <CardContainer classList="relative overflow-clip grid content-center justify-center w-[686px] h-[504px]">
+    <CardContainer id='card' classList="relative overflow-clip grid content-center justify-center w-[686px] h-[504px]">
       <div className='bg-white w-[545px] h-[425px] flex flex-col content-center justify-items-center items-center justify-center'>
         <h3 className='lato-regular w-fit text-[23px]'>Certificate of achievement</h3>
         <h2 className='lato-regular w-fit text-[42px]'>{achieverName ?? 'Daniel Ramírez'}</h2>
