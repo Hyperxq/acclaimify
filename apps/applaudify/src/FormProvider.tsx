@@ -16,10 +16,8 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     achieverName: '',
     position: '',
     projectName: '',
-    photo: null,
     dateOfAchievement: '',
-    recognizer: '',
-    personalNote: ''
+    achievementSummary: ''
   });
 
   return (

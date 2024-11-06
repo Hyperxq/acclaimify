@@ -1,0 +1,29 @@
+
+h1#title{
+  color: #8B67DC;
+  text-shadow: 0px 23.438px 28.126px rgba(16, 24, 40, 0.13), 0px 9.375px 9.375px rgba(16, 24, 40, 0.06);
+  font-size: 78.204px;
+  line-height: normal;
+}
+
+h3#slogan {
+  color: #FFF;
+  text-shadow: 0px 23.438px 28.126px rgba(16, 24, 40, 0.16), 0px 9.375px 9.375px rgba(16, 24, 40, 0.13);
+  font-size: 25.126px;
+  line-height: normal;
+}
+
+/*
+section#form{
+  width: 479.312px;
+  padding: 25.227px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  border-radius: 15.136px;
+  border: 1.261px solid var(--Colors-Border-border-secondary, #EAECF0);
+  background: var(--Colors-Background-bg-primary, #FFF);
+  box-shadow: 0px 23.438px 28.126px -4.688px rgba(16, 24, 40, 0.08), 0px 9.375px 9.375px -4.688px rgba(16, 24, 40, 0.03);
+} */

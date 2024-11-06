@@ -1,2 +1,3 @@
-export * from './lib/card/Card';
+export * from './lib/card';
 export * from './lib/interfaces/data.interface';
+export * from './lib/cardContainer';

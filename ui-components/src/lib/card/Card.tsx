@@ -6,9 +6,7 @@ export const Card = ({
   achieverName,
   position,
   projectName,
-  dateOfAchievement,
-  recognizer,
-  personalNote
+  dateOfAchievement
 }: AppreciationData) => {
 
   return (
@@ -33,18 +31,18 @@ export const Card = ({
 
         {/* Appreciation Message */}
         <p className="poppins-regular text-gray-600 mb-10 text-sm max-w-lg">
-          {personalNote || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl.'}
+          {/* {personalNote || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl.'} */}
         </p>
 
         {/* Date and Signature */}
         <div className="flex justify-between text-center">
           <div>
             <h3 className="text-xs font-semibold text-gray-600 mb-1">DATE</h3>
-            <p className="poppins-thin text-[#D6BBA3] font-semibold">{dateOfAchievement || 'MM/DD/YYYY'}</p>
+            {/* <p className="poppins-thin text-[#D6BBA3] font-semibold">{dateOfAchievement || 'MM/DD/YYYY'}</p> */}
           </div>
           <div>
             <h3 className="text-xs font-semibold text-gray-600 mb-1">SIGNATURE</h3>
-            <p className="poppins-thin text-[#D6BBA3] font-semibold">{recognizer || 'Signature'}</p>
+            {/* <p className="poppins-thin text-[#D6BBA3] font-semibold">{recognizer || 'Signature'}</p> */}
           </div>
         </div>
       </div>

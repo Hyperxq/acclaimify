@@ -1,28 +1,42 @@
 import React, { ChangeEvent, useRef } from 'react';
-import { TextInput, Textarea, Label, FileInput } from 'flowbite-react';
+import { TextInput, Datepicker, Textarea } from 'flowbite-react';
 import { useFormContext } from './useFormContext';
+import { useForm } from '@tanstack/react-form';
 import axios from 'axios';
+import { AppreciationData } from '@applaudify/ui-components';
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function FormComponent() {
+  const form = useForm<AppreciationData>({
+    onSubmit: async ({ value }) => {
+      // Do something with form data
+      console.log(value)
+    }
+  })
   const { formData, setFormData } = useFormContext();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (field: any, e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    field.handleChange(e.target.value)
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFormData({ ...formData, photo: e.target.files[0] });
-    }
-  };
+  const handleDateChange = (field: any, date: string | undefined) => {
+    field.handleChange(date)
+    setFormData({ ...formData, dateOfAchievement: date });
+  }
 
   const downloadRef = useRef<HTMLAnchorElement>(null);
 
-  const handleDownload = async (event: React.MouseEvent<HTMLButtonElement>) => {
+  const onSubmit = async (event: { preventDefault: () => void; stopPropagation: () => void; }) => {
     event.preventDefault();
+    event.stopPropagation();
+    form.handleSubmit();
+    handleDownload();
+  }
+
+  const handleDownload = async () => {
 
     try {
       const response = await axios.post(`${apiUrl}/api/cards/generate`, formData, {
@@ -44,92 +58,95 @@ export default function FormComponent() {
   };
 
   return (
-    <form className="mx-auto max-w-sm space-y-4">
-      <div>
-        <Label htmlFor="achieverName" value="Achiever’s Name" />
-        <TextInput
-          id="achieverName"
+
+    <form onSubmit={onSubmit} className="mx-auto p-4 space-y-4 rounded-lg">
+      <div className="grid grid-cols-2 gap-4">
+        <form.Field
           name="achieverName"
-          value={formData.achieverName}
-          onChange={handleChange}
-          placeholder="Enter achiever's name"
-          required
+          children={(field) => (
+            <TextInput
+              id={field.name}
+              placeholder="Achiever Name"
+              name={field.name}
+              value={field.state.value}
+              onBlur={field.handleBlur}
+              onChange={(e) => handleChange(field, e)}
+              required
+            />
+          )}
         />
-      </div>
-
-      <div>
-        <Label htmlFor="position" value="Position" />
-        <TextInput
-          id="position"
+        <form.Field
           name="position"
-          value={formData.position}
-          onChange={handleChange}
-          placeholder="Enter position"
-          required
+          children={(field) => (
+            <TextInput
+              id={field.name}
+              name={field.name}
+              placeholder="Position"
+              value={field.state.value}
+              onBlur={field.handleBlur}
+              onChange={(e) => handleChange(field, e)}
+              required
+            />
+          )}
         />
       </div>
 
       <div>
-        <Label htmlFor="projectName" value="Project Name" />
-        <TextInput
-          id="projectName"
+        <form.Field
           name="projectName"
-          value={formData.projectName}
-          onChange={handleChange}
-          placeholder="Enter project name"
-          required
+          children={(field) => (
+            <TextInput
+              id={field.name}
+              name={field.name}
+              placeholder="Project Name"
+              value={field.state.value}
+              onBlur={field.handleBlur}
+              onChange={(e) => handleChange(field, e)}
+              required
+            />
+          )}
         />
       </div>
 
       <div>
-        <Label htmlFor="photo" value="Photo" />
-        <FileInput
-          id="photo"
-          name="photo"
-          accept='image/png, image/jpeg'
-          onChange={handleFileChange}
-          helperText="Only PNG, JPG"
-        />
-      </div>
-
-      <div>
-        <Label htmlFor="dateOfAchievement" value="Date of Achievement" />
-        <TextInput
-          id="dateOfAchievement"
+        <form.Field
           name="dateOfAchievement"
-          value={formData.dateOfAchievement}
-          onChange={handleChange}
-          placeholder="Select date"
+          children={(field) => (
+            <Datepicker
+              id={field.name}
+              name={field.name}
+              title="Date of Achievement"
+              placeholder="Select the Date of Achievement"
+              onBlur={field.handleBlur}
+              onChange={(date) => handleDateChange(field, date?.toDateString())}
+              required
+            />
+          )}
         />
       </div>
 
       <div>
-        <Label htmlFor="recognizer" value="Recognizer's Name and Position" />
-        <TextInput
-          id="recognizer"
-          name="recognizer"
-          value={formData.recognizer}
-          onChange={handleChange}
-          placeholder="Enter recognizer's name and position"
-          required
+        <form.Field
+          name="achievementSummary"
+          children={(field) => (
+            <Textarea
+              id={field.name}
+              name={field.name}
+              className='max-h-72'
+              placeholder="Enter your message..."
+              maxLength={400}
+              value={field.state.value}
+              onBlur={field.handleBlur}
+              onChange={(e) => handleChange(field, e)}
+              required
+            />
+          )}
         />
       </div>
 
-      <div>
-        <Label htmlFor="personalNote" value="Message or Personal Note" />
-        <Textarea
-          id="personalNote"
-          name="personalNote"
-          value={formData.personalNote}
-          onChange={handleChange}
-          placeholder="Write your thoughts here..."
-          rows={4}
-        />
-      </div>
-
-      <button onClick={handleDownload}>Download Card Image</button>
       {/* Hidden link element used for download */}
       <a ref={downloadRef} style={{ display: 'none' }}>Download Link</a>
     </form>
+
   );
 }
