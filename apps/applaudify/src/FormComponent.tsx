@@ -59,7 +59,7 @@ export default function FormComponent() {
 
   return (
 
-    <form onSubmit={onSubmit} className="mx-auto p-4 space-y-4 rounded-lg">
+    <form onSubmit={onSubmit} className="mx-auto p-9 space-y-5 rounded-lg">
       <div className="grid grid-cols-2 gap-4">
         <form.Field
           name="achieverName"
@@ -134,7 +134,7 @@ export default function FormComponent() {
               name={field.name}
               className='max-h-72'
               placeholder="Enter your message..."
-              maxLength={400}
+              maxLength={152}
               value={field.state.value}
               onBlur={field.handleBlur}
               onChange={(e) => handleChange(field, e)}

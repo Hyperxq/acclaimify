@@ -18,6 +18,9 @@ module.exports = {
       gridTemplateColumns: {
         'min-content-2': 'min-content min-content',
       },
+      gridTemplateRows: {
+        'min-content': 'min-content',
+      },
       borderWidth: {
         custom: '2.4px',
         input: '1.261px',

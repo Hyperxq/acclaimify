@@ -3,22 +3,32 @@ const { join } = require('path');
 
 module.exports = {
   content: [
-    join(__dirname, 'src/**/*.{js,jsx,ts,tsx}'),  // Include all files in the UI library
-    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}', // Add Flowbite paths for Tree Shaking
+    join(__dirname, 'src/**/*.{js,jsx,ts,tsx,html}'),
+    './node_modules/flowbite-react/**/*.js',
+    ...createGlobPatternsForDependencies(__dirname), flowbite.content()
   ],
   theme: {
     extend: {
       borderRadius: {
         custom: '15.136px',
+        input: '10.064px',
+      },
+      gridTemplateColumns: {
+        'min-content-2': 'min-content min-content',
+      },
+      gridTemplateRows: {
+        'min-content': 'min-content',
       },
       borderWidth: {
         custom: '2.4px',
+        input: '1.261px',
       },
       backgroundImage: {
         'custom-radial': 'radial-gradient(314.45% 139.15% at 3.59% 3.24%, rgba(255, 255, 255, 0.49) 0%, rgba(255, 255, 255, 0.07) 100%)',
       },
       boxShadow: {
         custom: '0px 24.889px 29.867px -4.978px rgba(28, 20, 44, 0.08), 0px 9.956px 9.956px -4.978px rgba(29, 20, 47, 0.03)',
+        input: '0px 1.261px 2.523px rgba(16, 24, 40, 0.05)',
       },
       backdropBlur: {
         custom: '14.3939px',
@@ -54,7 +64,9 @@ module.exports = {
           light: '#FAFAFF',
           100: '#6E6E6E',
           200: '#B3B3B3',
-        }
+        },
+        inputBorder: '#D0D5DD',
+        inputBg: '#FFFFFF',
       }
     },
   },

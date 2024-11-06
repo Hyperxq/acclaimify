@@ -1,6 +1,5 @@
 import React from 'react';
 import { IProps } from '../interfaces/props.interface';
-import './CardContainer.css';
 
 interface Props extends IProps {
   classList?: string
