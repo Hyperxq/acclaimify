@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import { AppreciationData } from "../interfaces/data.interface";
 import { CardContainer } from '../cardContainer';
 

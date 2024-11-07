@@ -59,7 +59,7 @@ export default function FormComponent() {
 
   return (
 
-    <form onSubmit={onSubmit} className="mx-auto p-9 space-y-5 rounded-lg">
+    <form onSubmit={onSubmit} className="mx-auto p-[1.8rem] space-y-5 rounded-lg">
       <div className="grid grid-cols-2 gap-4">
         <form.Field
           name="achieverName"

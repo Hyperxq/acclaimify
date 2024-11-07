@@ -9,6 +9,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      perspective: {
+        '500': '500px',
+        '1000': '1000px',
+        '1500': '1500px',
+      },
       borderRadius: {
         custom: '15.136px',
         input: '10.064px',
@@ -72,5 +77,16 @@ module.exports = {
   },
   plugins: [
     require('flowbite/plugin'),  // Include Flowbite plugin for Tailwind
+    function ({ addUtilities, theme, e }) {
+      const perspectives = theme('perspective');
+      const utilities = Object.fromEntries(
+        Object.entries(perspectives).map(([key, value]) => [
+          `.${e(`perspective-${key}`)}`,
+          { perspective: value },
+        ])
+      );
+
+      addUtilities(utilities);
+    },
   ],
 };

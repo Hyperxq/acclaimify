@@ -1,6 +1,7 @@
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const flowbite = require('flowbite-react/tailwind');
 const { join } = require('path');
+const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -11,6 +12,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      perspective: {
+        '500': '500px',
+        '1000': '1000px',
+        '1500': '1500px',
+      },
       borderRadius: {
         custom: '15.136px',
         input: '10.064px',
@@ -72,5 +78,19 @@ module.exports = {
       }
     },
   },
-  plugins: [flowbite.plugin()],
+  plugins: [
+    require('flowbite/plugin'),  // Include Flowbite plugin for Tailwind
+    plugin(function ({ matchUtilities }) {
+      matchUtilities(
+        {
+           // Class name
+          'perspective': (value) => {
+            return {
+              perspective: value, // Desired CSS properties here
+            }
+          },
+        }
+      )
+    }),
+  ],
 };
