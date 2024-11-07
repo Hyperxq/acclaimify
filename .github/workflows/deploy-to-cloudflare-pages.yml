@@ -38,3 +38,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: 'applaudify'
           directory: './dist/apps/applaudify'
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
