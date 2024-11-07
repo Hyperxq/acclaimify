@@ -8,9 +8,15 @@ export default defineConfig(({ mode }) => {
 
   const env = loadEnv(mode, process.cwd());
 
+
+  const urlMap =  {
+    production: '/applaudify/',
+    cloudflare: './'
+  }
+
   return {
     root: __dirname,
-    base: mode === 'production' ? '/applaudify/' : '/',
+    base: urlMap[mode] ?? '/',
     cacheDir: '../../node_modules/.vite/apps/applaudify',
     server: {
       port: 4200,

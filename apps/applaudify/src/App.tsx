@@ -7,6 +7,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { Header } from "./Header";
 
 const queryClient = new QueryClient();
 
@@ -17,10 +18,7 @@ function App() {
         <FormProvider>
           <section className="w-fit flex flex-col gap-9 ">
 
-            <header className="w-fit md:col-span-2 lg:col-span-3 text-center">
-              <h1 id="title" className="space-mono-regular">Applaudify</h1>
-              <h3 id="slogan" className="poppins-regular">Honor the Effort, Capture the Moment</h3>
-            </header>
+            <Header />
             <CardContainer id="form" classList="w-fit lg:min-w-[479px] max-w-[479px]">
               <FormComponent />
             </CardContainer>
