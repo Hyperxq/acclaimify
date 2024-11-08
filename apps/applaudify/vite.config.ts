@@ -1,4 +1,3 @@
-/// <reference types='vitest' />
 import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
@@ -26,32 +25,25 @@ export default defineConfig(({ mode }) => {
       port: 4300,
       host: 'localhost',
     },
-    plugins: [react({
-      jsxRuntime: 'classic'
-    }), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
+    plugins: [react(), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
     // Uncomment this if you are using workers.
     // worker: {
     //  plugins: [ nxViteTsPaths() ],
     // },
-    optimizeDeps: {
-      include: ['react-canvas-confetti/dist/presets/Pride', '@tanstack/react-query', 'react-dom'],
-    },
     build: {
       outDir: '../../dist/apps/applaudify',
       emptyOutDir: true,
       reportCompressedSize: true,
-      include: [/node_modules/],
-      transformMixedEsModules: true,
       commonjsOptions: {
         transformMixedEsModules: true,
-        include: [],
+        include: [/node_modules/, /react-canvas-confetti/],
       },
       rollupOptions: {
-        external: ['react', 'react-dom', 'react-dom/client', 'react/jsx-runtime', 'flowbite-react', '@tanstack/react-query', '@tanstack/react-store', 'react-canvas-confetti/dist/presets/Pride'],
+        external: [],
       },
     },
     define: {
-      'process.env': env,
+      'process.env': env, // allows access to process.env in code
     },
     resolve: {
       alias: {
