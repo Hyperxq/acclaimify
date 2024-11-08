@@ -31,18 +31,16 @@ export default defineConfig(({ mode }) => {
     // worker: {
     //  plugins: [ nxViteTsPaths() ],
     // },
-    optimizeDeps: {
-      include: ['react-canvas-confetti', 'react-canvas-confetti/dist/presets/Pride'],
-    },
     build: {
       outDir: '../../dist/apps/applaudify',
       emptyOutDir: true,
       reportCompressedSize: true,
       commonjsOptions: {
         transformMixedEsModules: true,
+        include: [/node_modules/, /react-canvas-confetti/],
       },
       rollupOptions: {
-        external: ['react-canvas-confetti', 'react-canvas-confetti/dist/presets/Pride'],
+        external: [],
       },
     },
     define: {
