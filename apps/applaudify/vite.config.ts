@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
 
   const urlMap =  {
     production: '/applaudify/',
-    cloudflare: './'
+    cloudflare: '/'
   }
 
   return {
