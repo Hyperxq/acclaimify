@@ -29,7 +29,7 @@ jobs:
         run: pnpm install
 
       - name: Build project
-        run: pnpm nx run applaudify:build --configuration=production
+        run: pnpm nx run applaudify:build --configuration=cloudflare
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
