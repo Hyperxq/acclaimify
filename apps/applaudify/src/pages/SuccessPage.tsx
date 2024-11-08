@@ -1,5 +1,5 @@
 import { MainContainer } from '../components';
-import Pride from 'react-canvas-confetti/dist/presets/Pride';
+import Pride from "https://esm.sh/react-canvas-confetti/dist/presets/pride";
 import { Button, CustomFlowbiteTheme, Flowbite } from 'flowbite-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ActionType } from '../enums';

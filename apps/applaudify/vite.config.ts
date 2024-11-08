@@ -36,7 +36,7 @@ export default defineConfig(({ mode }) => {
       reportCompressedSize: true,
       commonjsOptions: {
         transformMixedEsModules: true,
-        include: [/node_modules/, /react-canvas-confetti/],
+        include: [/node_modules/],
       },
       rollupOptions: {
         external: [],
@@ -44,11 +44,6 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       'process.env': env, // allows access to process.env in code
-    },
-    resolve: {
-      alias: {
-        'react-canvas-confetti/dist/presets/Pride': 'react-canvas-confetti/dist/presets/index.js',
-      },
-    },
+    }
   }
 });

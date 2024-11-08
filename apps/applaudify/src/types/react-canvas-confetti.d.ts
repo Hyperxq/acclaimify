@@ -1,2 +1,4 @@
-// react-canvas-confetti.d.ts
-declare module 'react-canvas-confetti/dist/presets/Pride';
+declare module "https://esm.sh/react-canvas-confetti/dist/presets/pride" {
+  const Pride: any;
+  export default Pride;
+}

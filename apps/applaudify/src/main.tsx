@@ -7,7 +7,9 @@ const isCloudflare = import.meta.env.VITE_DEPLOY_TARGET === 'cloudflare';
 const basename = isCloudflare ? '/' : '/applaudify/';
 
 REACTDOM.createRoot(document.getElementById("root")!).render(
-  <BrowserRouter basename={basename}>
+  <BrowserRouter future={{
+    v7_startTransition: true,
+  }} basename={basename}>
     <App />
   </BrowserRouter>
 );
