@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => {
         transformMixedEsModules: true,
       },
       rollupOptions: {
-        external: ['react-canvas-confetti'],
+        external: ['react-canvas-confetti/dist/presets/Pride'],
       },
     },
     define: {
