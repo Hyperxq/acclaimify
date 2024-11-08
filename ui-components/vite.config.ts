@@ -10,7 +10,9 @@ export default defineConfig({
   root: __dirname,
   cacheDir: '../node_modules/.vite/ui-components',
   plugins: [
-    react(),
+    react({
+      jsxRuntime: 'classic'
+    }),
     nxViteTsPaths(),
     nxCopyAssetsPlugin(['*.md', 'src/index.css']),
     dts({
@@ -24,6 +26,7 @@ export default defineConfig({
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,
+      include: [/node_modules/],
     },
     lib: {
       // Could also be a dictionary or array of multiple entry points.

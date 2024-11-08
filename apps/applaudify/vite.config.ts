@@ -26,28 +26,37 @@ export default defineConfig(({ mode }) => {
       port: 4300,
       host: 'localhost',
     },
-    plugins: [react(), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
+    plugins: [react({
+      jsxRuntime: 'classic'
+    }), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
     // Uncomment this if you are using workers.
     // worker: {
     //  plugins: [ nxViteTsPaths() ],
     // },
     optimizeDeps: {
-      include: ['react-canvas-confetti', 'react-canvas-confetti/dist/presets/Pride'],
+      include: ['react-canvas-confetti/dist/presets/Pride', '@tanstack/react-query', 'react-dom/client'],
     },
     build: {
       outDir: '../../dist/apps/applaudify',
       emptyOutDir: true,
       reportCompressedSize: true,
+      include: [/node_modules/],
+      transformMixedEsModules: true,
       commonjsOptions: {
         transformMixedEsModules: true,
-        include: [/node_modules/, /react-canvas-confetti/],
+        include: [],
       },
       rollupOptions: {
-        external: ['react-canvas-confetti', 'react-canvas-confetti/dist/presets/Pride'],
+        external: ['react', 'react-dom', 'react/jsx-runtime', 'flowbite-react', '@tanstack/react-query', '@tanstack/react-store', 'react-dom/client', 'react-canvas-confetti/dist/presets/Pride'],
       },
     },
     define: {
-      'process.env': env, // allows access to process.env in code
+      'process.env': env,
+    },
+    resolve: {
+      alias: {
+        'react-canvas-confetti/dist/presets/Pride': 'react-canvas-confetti/dist/presets/index.js',
+      },
     },
   }
 });
