@@ -34,9 +34,11 @@ module.exports = {
       boxShadow: {
         custom: '0px 24.889px 29.867px -4.978px rgba(28, 20, 44, 0.08), 0px 9.956px 9.956px -4.978px rgba(29, 20, 47, 0.03)',
         input: '0px 1.261px 2.523px rgba(16, 24, 40, 0.05)',
+        'custom-circle': '0px 32.233px 38.68px -6.447px rgba(28, 20, 44, 0.08), 0px 12.893px 12.893px -6.447px rgba(29, 20, 47, 0.03)',
       },
       backdropBlur: {
         custom: '14.3939px',
+        'custom-circle': '18.64px',
       },
       colors: {
         primary: '#5900FF',    // Primary color

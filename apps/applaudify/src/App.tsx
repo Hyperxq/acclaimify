@@ -1,31 +1,23 @@
-import FormComponent from "./FormComponent";
-import { FormProvider } from "./FormProvider";
 import "./App.css";
-import { CardContainer } from "@applaudify/ui-components";
-import AchievementContainer from "./AchievementContainer";
 import {
   QueryClient,
   QueryClientProvider,
-} from '@tanstack/react-query'
-import { Header } from "./Header";
+} from '@tanstack/react-query';
+import { Routes, Route } from "react-router-dom";
+import { Home, Loading } from "./pages";
+import Success from "./pages/SuccessPage";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <main id="mainContainer" className="grid grid-cols-1 md:grid-cols-min-content-2 grid-rows-min-content items-end justify-items-center content-center justify-center gap-12 w-screen h-screen bg-cover bg-center bg-no-repeat bg-[url('./assets/blur.png')]">
-        <FormProvider>
-          <section className="w-fit flex flex-col gap-9 ">
-
-            <Header />
-            <CardContainer id="form" classList="w-fit lg:min-w-[479px] max-w-[479px]">
-              <FormComponent />
-            </CardContainer>
-          </section>
-          <AchievementContainer />
-        </FormProvider>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/loading" element={<Loading />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
     </QueryClientProvider>
   );
 }

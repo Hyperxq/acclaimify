@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
 
   const urlMap =  {
     production: '/applaudify/',
-    cloudflare: './dist/apps/applaudify'
+    cloudflare: './'
   }
 
   return {

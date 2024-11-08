@@ -1,5 +1,6 @@
 import { useMutation, UseMutationResult } from '@tanstack/react-query';
 import { AppreciationData } from '@applaudify/ui-components';
+import { useNavigate } from 'react-router-dom';
 
 interface UseCardImageActionsProps {
   formData: Partial<AppreciationData>;
@@ -19,10 +20,15 @@ export const useCardImageActions = ({
   fetchResource,
   copyToClipboard,
 }: UseCardImageActionsProps): UseCardImageActionsResult => {
-  // Define download mutation
+  const navigate = useNavigate();
+
   const downloadMutation: UseMutationResult<Blob, Error, void> = useMutation({
-    mutationFn: () => fetchResource(formData),
+    mutationFn: () => {
+      navigate('/loading');
+      return fetchResource(formData)
+    },
     onSuccess: (imageBlob: Blob) => {
+
       const url = URL.createObjectURL(imageBlob);
       const link = document.createElement('a');
       link.href = url;
@@ -31,22 +37,29 @@ export const useCardImageActions = ({
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
+      navigate('/success');
     },
     onError: (error: Error) => {
       console.error("Error downloading the image:", error);
+      navigate('/');
     },
   });
 
   // Define copy mutation
   const copyMutation: UseMutationResult<Blob, Error, void> = useMutation({
-    mutationFn: () => fetchResource(formData),
+    mutationFn: () => {
+      navigate('/loading');
+      return fetchResource(formData)
+    },
     onSuccess: async (imageBlob: Blob) => {
       const url = URL.createObjectURL(imageBlob);
       await copyToClipboard(url);
       URL.revokeObjectURL(url);
+      navigate('/success');
     },
     onError: (error: Error) => {
       console.error("Error copying the image URL:", error);
+      navigate('/');
     },
   });
 
