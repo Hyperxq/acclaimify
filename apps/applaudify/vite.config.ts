@@ -31,12 +31,18 @@ export default defineConfig(({ mode }) => {
     // worker: {
     //  plugins: [ nxViteTsPaths() ],
     // },
+    optimizeDeps: {
+      include: ['react-canvas-confetti'],
+    },
     build: {
       outDir: '../../dist/apps/applaudify',
       emptyOutDir: true,
       reportCompressedSize: true,
       commonjsOptions: {
         transformMixedEsModules: true,
+      },
+      rollupOptions: {
+        external: ['react-canvas-confetti'],
       },
     },
     define: {
