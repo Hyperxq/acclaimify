@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => {
     //  plugins: [ nxViteTsPaths() ],
     // },
     optimizeDeps: {
-      include: ['react-canvas-confetti/dist/presets/Pride', '@tanstack/react-query', 'react-dom/client'],
+      include: ['react-canvas-confetti/dist/presets/Pride', '@tanstack/react-query'],
     },
     build: {
       outDir: '../../dist/apps/applaudify',
