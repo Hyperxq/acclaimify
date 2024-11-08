@@ -47,7 +47,7 @@ export default defineConfig(({ mode }) => {
         include: [],
       },
       rollupOptions: {
-        external: ['react', 'react-dom', 'react/jsx-runtime', 'flowbite-react', '@tanstack/react-query', '@tanstack/react-store', 'react-dom/client', 'react-canvas-confetti/dist/presets/Pride'],
+        external: ['react', 'react-dom', 'react/jsx-runtime', 'flowbite-react', '@tanstack/react-query', '@tanstack/react-store', 'react-canvas-confetti/dist/presets/Pride'],
       },
     },
     define: {
