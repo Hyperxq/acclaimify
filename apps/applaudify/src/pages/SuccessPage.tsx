@@ -1,10 +1,10 @@
-import { MainContainer } from '../components';
-import Pride from "https://esm.sh/react-canvas-confetti/dist/presets/pride";
+import { MainContainer, PrideWrapper } from '../components';
+// import Pride from "https://esm.sh/react-canvas-confetti/dist/presets/pride";
 import { Button, CustomFlowbiteTheme, Flowbite } from 'flowbite-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ActionType } from '../enums';
 import { TOnInitPresetFn } from 'react-canvas-confetti/dist/types';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 
 const colors = ['#8B67DC', '#96E8DA'];
 const Success = () => {
@@ -73,8 +73,10 @@ const Success = () => {
 
   return (
     <MainContainer>
-      <Pride autorun={{ speed: 45 }} onInit={onInitLeft} decorateOptions={rightPrideConfig} />
-      <Pride autorun={{ speed: 45 }} onInit={onInitRight} decorateOptions={leftPrideConfig} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <PrideWrapper autorun={{ speed: 45 }} onInit={onInitLeft} decorateOptions={rightPrideConfig} />
+        <PrideWrapper autorun={{ speed: 45 }} onInit={onInitRight} decorateOptions={leftPrideConfig} />
+      </Suspense>
       <header className="duration-500 ease-in-out animate-fadeIn flex flex-col items-center w-max text-center z-1">
         <h1 className="text-[81.512px] text-[#8B67DC] max-h-[115px] space-mono-regular">Success!</h1>
         <h3 className="text-[25.308px] text-white max-w-[510.01px] poppins-regular">Your certificate has been {actionTextMap[type]} successfully.</h3>

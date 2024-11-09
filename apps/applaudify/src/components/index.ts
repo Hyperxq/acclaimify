@@ -8,3 +8,4 @@ export * from './Header/Header';
 export * from './Loader/index';
 export * from './Loader/Loader';
 export * from './MainContainer/MainContainer';
+export * from './PrideWrapper/PrideWrapper';

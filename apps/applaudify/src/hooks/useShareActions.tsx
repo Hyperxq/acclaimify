@@ -28,7 +28,7 @@ export const useCardImageActions = ({
       return fetchResource(formData)
     },
     onSuccess: (imageBlob: Blob) => {
-
+      navigate('/success');
       const url = URL.createObjectURL(imageBlob);
       const link = document.createElement('a');
       link.href = url;
@@ -37,7 +37,7 @@ export const useCardImageActions = ({
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
-      navigate('/success');
+
     },
     onError: (error: Error) => {
       console.error("Error downloading the image:", error);
@@ -52,10 +52,10 @@ export const useCardImageActions = ({
       return fetchResource(formData)
     },
     onSuccess: async (imageBlob: Blob) => {
+      navigate('/success');
       const url = URL.createObjectURL(imageBlob);
       await copyToClipboard(url);
       URL.revokeObjectURL(url);
-      navigate('/success');
     },
     onError: (error: Error) => {
       console.error("Error copying the image URL:", error);
