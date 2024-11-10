@@ -19,7 +19,7 @@ export const Card = ({
 
         <h5 className='lato-regular w-fit text-[11px] pt-[9px]'>{projectName ? projectName + ',' : ''} {dateOfAchievement}</h5>
 
-        <p className='lato-regular w-fit max-w-[337px] pt-[23px] text-[16px] text-[#6D6D6D] text-center'>{achievementSummary ?? 'Thanks for everything'}</p>
+        <p className='lato-regular w-fit break-words max-w-[337px] pt-[23px] text-[16px] text-[#6D6D6D] text-center'>{achievementSummary ?? 'Thanks for everything'}</p>
 
         <svg className='absolute top-0 right-0' width="687" height="528" viewBox="0 0 687 528" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="46.2069" cy="564.635" rx="115.016" ry="442.971" transform="rotate(-48.6012 46.2069 564.635)" fill="#96E8DA" />
