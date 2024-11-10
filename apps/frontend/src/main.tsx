@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 const mode: string = import.meta.env.VITE_DEPLOY_TARGET ?? 'development';
 
 const urlMap: Record<string, string> = {
-  production: '/applaudify/',
+  production: '/acclaimify/',
   cloudflare: '/',
   development: '/'
 }

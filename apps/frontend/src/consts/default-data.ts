@@ -1,4 +1,4 @@
-import { AppreciationData } from "@applaudify/ui-components";
+import { AppreciationData } from "@acclaimify/ui-components";
 
 export const defaultData: AppreciationData = {
   achieverName: "Daniel Ramírez",

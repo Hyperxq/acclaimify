@@ -1,4 +1,4 @@
-import { CardContainer } from "@applaudify/ui-components"
+import { CardContainer } from "@acclaimify/ui-components"
 import { MainContainer } from "../components"
 import AchievementContainer from "../components/AchievementContainer/AchievementContainer"
 import FormComponent from "../components/FormComponent/FormComponent"

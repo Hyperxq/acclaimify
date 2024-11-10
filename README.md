@@ -1,4 +1,4 @@
-# Applaudify
+# acclaimify
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -11,19 +11,19 @@
 To run the dev server for your app, use:
 
 ```sh
-npx nx serve applaudify
+npx nx serve acclaimify
 ```
 
 To create a production bundle:
 
 ```sh
-npx nx build applaudify
+npx nx build acclaimify
 ```
 
 To see all available targets to run for a project, run:
 
 ```sh
-npx nx show project applaudify
+npx nx show project acclaimify
 ```
 
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
@@ -52,7 +52,7 @@ You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx 
 
 [Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## Set up CI!
+## Set up CI
 
 ### Step 1
 
@@ -95,6 +95,7 @@ Learn more:
 - [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
 And join the Nx community:
+
 - [Discord](https://go.nx.dev/community)
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)

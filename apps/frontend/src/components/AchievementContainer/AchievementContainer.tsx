@@ -1,4 +1,4 @@
-import { Card } from '@applaudify/ui-components';
+import { Card } from '@acclaimify/ui-components';
 import { useCardRotation } from '../../hooks';
 import { ActionMenu } from '../ActionMenu';
 import { useFormContext } from '../../contexts';

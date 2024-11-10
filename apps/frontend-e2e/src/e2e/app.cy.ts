@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('applaudify-e2e', () => {
+describe('acclaimify-e2e', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {

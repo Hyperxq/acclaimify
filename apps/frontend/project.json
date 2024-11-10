@@ -1,10 +1,10 @@
 {
-  "name": "applaudify",
+  "name": "frontend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/applaudify/src",
+  "sourceRoot": "apps/acclaimify/src",
   "projectType": "application",
   "tags": [],
-  "// targets": "to see all targets run: nx show project applaudify --web",
+  "// targets": "to see all targets run: nx show project frontend --web",
   "targets": {
     "build": {
       "configurations": {

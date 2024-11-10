@@ -3,10 +3,10 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches:
-      - main  # or your production branch
+      - main # or your production branch
   pull_request:
     branches:
-      - main  # or your production branch
+      - main # or your production branch
 
 jobs:
   deploy:
@@ -29,13 +29,13 @@ jobs:
         run: pnpm install
 
       - name: Build project
-        run: pnpm nx run applaudify:build --configuration=cloudflare
+        run: pnpm nx run acclaimify:build --configuration=cloudflare
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: 'applaudify'
-          directory: './dist/apps/applaudify'
+          projectName: 'acclaimify'
+          directory: './dist/apps/acclaimify'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

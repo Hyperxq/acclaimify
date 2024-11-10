@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import puppeteer from 'puppeteer-extra';
 import * as ReactDOMServer from 'react-dom/server';
 import React from 'react';
-import { AppreciationData, Card } from '@applaudify/ui-components';
+import { AppreciationData, Card } from '@acclaimify/ui-components';
 import * as fs from 'fs';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 

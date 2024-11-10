@@ -14,7 +14,7 @@ async function bootstrap() {
   if (process.env.NODE_ENV === 'production') {
     app.enableCors({
       origin: [
-        'https://hyperxq.github.io/applaudify',
+        'https://hyperxq.github.io/acclaimify',
         'https://hyperxq.github.io',
       ],
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',

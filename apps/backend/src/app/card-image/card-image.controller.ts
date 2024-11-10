@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 import { CardImageService } from './card-image.service';
-import { AppreciationData } from '@applaudify/ui-components';
+import { AppreciationData } from '@acclaimify/ui-components';
 
 @Controller('cards')
 export class CardController {

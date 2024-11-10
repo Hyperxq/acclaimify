@@ -8,10 +8,10 @@ export default defineConfig({
       cypressDir: 'src',
       bundler: 'vite',
       webServerCommands: {
-        default: 'npx nx run applaudify:serve',
-        production: 'npx nx run applaudify:preview',
+        default: 'npx nx run acclaimify:serve',
+        production: 'npx nx run acclaimify:preview',
       },
-      ciWebServerCommand: 'npx nx run applaudify:preview',
+      ciWebServerCommand: 'npx nx run acclaimify:preview',
       ciBaseUrl: 'http://localhost:4300',
     }),
     baseUrl: 'http://localhost:4200',

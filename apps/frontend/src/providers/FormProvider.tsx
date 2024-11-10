@@ -1,4 +1,4 @@
-import { AppreciationData } from "@applaudify/ui-components";
+import { AppreciationData } from "@acclaimify/ui-components";
 import { createContext, ReactNode, useState } from "react";
 
 // Define the context type

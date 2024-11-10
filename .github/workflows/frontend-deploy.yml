@@ -6,7 +6,7 @@ on:
       - main # Change this to the branch you want to trigger deployment
     paths-ignore:
       - 'docs/**'
-      - 'apps/applaudify-e2e/**' # Ignore changes in the backend directory
+      - 'apps/acclaimify-e2e/**' # Ignore changes in the backend directory
       - 'apps/backend/**'
       - 'apps/backend-e2e/**'
 
@@ -31,11 +31,11 @@ jobs:
         run: pnpm install
 
       - name: Build Vite frontend app
-        run: pnpm nx run applaudify:build --configuration=production
+        run: pnpm nx run acclaimify:build --configuration=production
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Use GITHUB_TOKEN here
-          publish_dir: ./dist/apps/applaudify
+          publish_dir: ./dist/apps/acclaimify
           publish_branch: gh-pages

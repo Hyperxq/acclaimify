@@ -1,4 +1,4 @@
-import { AppreciationData } from "@applaudify/ui-components";
+import { AppreciationData } from "@acclaimify/ui-components";
 import { Button, CustomFlowbiteTheme } from "flowbite-react";
 import { Flowbite } from "flowbite-react";
 import axios from "axios";

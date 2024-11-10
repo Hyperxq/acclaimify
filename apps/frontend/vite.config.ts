@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
 
 
   const urlMap: Record<string, string> = {
-    production: '/applaudify/',
+    production: '/acclaimify/',
     cloudflare: '/',
     development: '/'
   }
@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
   return {
     root: __dirname,
     base: urlMap[mode] ?? '/',
-    cacheDir: '../../node_modules/.vite/apps/applaudify',
+    cacheDir: '../../node_modules/.vite/apps/acclaimify',
     server: {
       port: 4200,
       host: 'localhost',
@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
     //  plugins: [ nxViteTsPaths() ],
     // },
     build: {
-      outDir: '../../dist/apps/applaudify',
+      outDir: '../../dist/apps/acclaimify',
       emptyOutDir: true,
       reportCompressedSize: true,
       commonjsOptions: {
