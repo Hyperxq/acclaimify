@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
   return {
     root: __dirname,
     base: urlMap[mode] ?? '/',
-    cacheDir: '../../node_modules/.vite/apps/acclaimify',
+    cacheDir: '../../node_modules/.vite/apps/frontend',
     server: {
       port: 4200,
       host: 'localhost',
@@ -45,7 +45,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
-      outDir: '../../dist/apps/acclaimify',
+      outDir: '../../dist/apps/frontend',
       emptyOutDir: true,
       reportCompressedSize: true,
       commonjsOptions: {
