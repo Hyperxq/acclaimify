@@ -11,10 +11,10 @@ import { AppModule } from './app/app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'cloudflare') {
     app.enableCors({
       origin: [
-        'https://hyperxq.github.io/acclaimify',
+        'https://hyperxq.github.io/acclaimify/',
         'https://hyperxq.github.io',
       ],
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
