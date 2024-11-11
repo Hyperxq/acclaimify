@@ -1,4 +1,4 @@
-import { Loader, MainContainer } from "../components"
+import { Loader, MainContainer } from "@components";
 
 export const Loading = () => {
   return (

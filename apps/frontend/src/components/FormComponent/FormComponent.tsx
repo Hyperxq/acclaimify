@@ -3,11 +3,11 @@ import { TextInput, Datepicker, Textarea } from 'flowbite-react';
 import { useForm } from '@tanstack/react-form';
 import axios from 'axios';
 import { AppreciationData } from '@acclaimify/ui-components';
-import { useFormContext } from '../../contexts';
+import { useFormContext } from '@contexts';
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
-export default function FormComponent() {
+export function FormComponent() {
   const form = useForm<AppreciationData>({
     onSubmit: async ({ value }) => {
       // Do something with form data

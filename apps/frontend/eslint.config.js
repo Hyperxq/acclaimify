@@ -6,6 +6,14 @@ module.exports = [
   ...nx.configs['flat/react'],
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    settings: {
+      'import/resolver': {
+        typescript: {
+          // Use the main `tsconfig.base.json` file for path resolution
+          project: ['./tsconfig.json'],
+        },
+      },
+    },
     // Override or add rules here
     rules: {},
   },

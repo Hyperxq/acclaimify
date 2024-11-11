@@ -2,7 +2,7 @@ import { AppreciationData } from "@acclaimify/ui-components";
 import { Button, CustomFlowbiteTheme } from "flowbite-react";
 import { Flowbite } from "flowbite-react";
 import axios from "axios";
-import { useCardImageActions } from "../../hooks";
+import { useCardImageActions } from "@hooks";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 

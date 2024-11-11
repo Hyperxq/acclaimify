@@ -1,9 +1,9 @@
+import { useFormContext } from '@contexts';
 import { Card } from '@acclaimify/ui-components';
-import { useCardRotation } from '../../hooks';
-import { ActionMenu } from '../ActionMenu';
-import { useFormContext } from '../../contexts';
+import { useCardRotation } from '@hooks';
+import { ActionMenu } from '@components';
 
-export default function AchievementContainer() {
+export function AchievementContainer() {
   const { formData } = useFormContext();
 
   const containerId = "achievementContainer";

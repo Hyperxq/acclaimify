@@ -1,4 +1,4 @@
-import { IProps } from "ui-components/src/lib/interfaces/props.interface";
+import { IProps } from "@acclaimify/ui-components";
 
 interface Props extends IProps {
   grid?: string

@@ -1,13 +1,13 @@
-import { MainContainer, PrideWrapper } from '../components';
 // import Pride from "https://esm.sh/react-canvas-confetti/dist/presets/pride";
 import { Button, CustomFlowbiteTheme, Flowbite } from 'flowbite-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ActionType } from '../enums';
 import { TOnInitPresetFn } from 'react-canvas-confetti/dist/types';
 import { Suspense, useEffect } from 'react';
+import { ActionType } from '@enums';
+import { MainContainer, PrideWrapper } from '@components';
 
 const colors = ['#8B67DC', '#96E8DA'];
-const Success = () => {
+export const Success = () => {
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -88,5 +88,3 @@ const Success = () => {
     </MainContainer>
   );
 };
-
-export default Success;

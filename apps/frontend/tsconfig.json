@@ -19,7 +19,21 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "paths": {
+      "@components": ["apps/frontend/src/components/index.ts"],
+      "@consts": ["apps/frontend/src/consts/index.ts"],
+      "@contexts": ["apps/frontend/src/contexts/index.ts"],
+      "@enums": ["apps/frontend/src/enums/index.ts"],
+      "@hooks": ["apps/frontend/src/hooks/index.ts"],
+      "@interceptors": ["apps/frontend/src/interceptors/index.ts"],
+      "@pages": ["apps/frontend/src/pages/index.ts"],
+      "@providers": ["apps/frontend/src/providers/index.ts"],
+      "@services": ["apps/frontend/src/services/index.ts"],
+      "@types": ["apps/frontend/src/types/index.ts"],
+      "@utilities": ["apps/frontend/src/utilities/index.ts"],
+      "@acclaimify/ui-components": ["ui-components/src/index.ts"]
+    },
   },
   "files": [],
   "include": [],

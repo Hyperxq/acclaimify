@@ -6,6 +6,5 @@ export const Loader = () => {
       {/* Inner Circle */}
       <div className="absolute z-0 h-[145px] w-[145px] rounded-full border-[17px] border-white/50 shadow-custom-circle backdrop-blur-custom-circle"></div>
     </div>
-    // <div className="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-[#8B67DC]" />
   )
 }
