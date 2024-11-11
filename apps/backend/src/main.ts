@@ -14,6 +14,7 @@ async function bootstrap() {
   if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'cloudflare') {
     app.enableCors({
       origin: [
+        'https://applaudify.pages.dev/',
         'https://hyperxq.github.io/acclaimify/',
         'https://hyperxq.github.io',
       ],
