@@ -5,7 +5,6 @@ import dts from 'vite-plugin-dts';
 import * as path from 'path';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   root: __dirname,
@@ -18,8 +17,12 @@ export default defineConfig({
       entryRoot: 'src',
       tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
-    tsconfigPaths(),
   ],
+  resolve: {
+    alias: {
+      '@acclaimify/ui-components': path.resolve(__dirname, 'src/index.ts'),
+    },
+  },
   build: {
     outDir: '../dist/ui-components',
     emptyOutDir: true,

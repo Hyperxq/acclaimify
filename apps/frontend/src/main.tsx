@@ -13,6 +13,7 @@ const urlMap: Record<string, string> = {
 
 const basename: string = urlMap[mode];
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 REACTDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter future={{
     v7_startTransition: true,

@@ -11,6 +11,9 @@
     }
   ],
   "compilerOptions": {
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@acclaimify/ui-components": ["ui-components/src/index.ts"]
+    }
   }
 }
