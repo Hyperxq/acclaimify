@@ -19,6 +19,8 @@ COPY . .
 # Build the UI library first
 RUN pnpx nx run ui-components:build --verbose
 
+RUN pnpx nx run frontend:build:production
+
 # Now build the backend app, which depends on the UI library
 RUN pnpx nx run backend:build:production --configuration=production --verbose
 

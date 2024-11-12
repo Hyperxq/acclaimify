@@ -2,9 +2,12 @@ import { Injectable } from '@nestjs/common';
 import puppeteer from 'puppeteer-extra';
 import * as ReactDOMServer from 'react-dom/server';
 import React from 'react';
-import { AppreciationData, Card } from '@acclaimify/ui-components';
 import * as fs from 'fs';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+import path from 'path';
+import glob from 'glob';
+import { AppreciationData } from 'ui-components/src/lib/interfaces/data.interface';
+import { Card } from 'ui-components/src/lib/card/Card';
 
 @Injectable()
 export class CardImageService {
@@ -27,16 +30,25 @@ export class CardImageService {
       React.createElement(Card, cardData)
     );
 
-    const styleCSS = fs.readFileSync(
-      'dist/ui-components/src/index.css',
-      'utf8'
-    );
+    const cssDir = path.join(__dirname, 'assets', 'css');
+
+    const cssPattern = path.join(cssDir, '*.css');
+
+    const files = glob.sync(cssPattern);
+
+    if (files.length === 0) {
+      console.error('No matching CSS file found');
+      return '';
+    }
+
+    const cssFilePath = files[0];
+    console.log(`Found CSS file: ${cssFilePath}`);
+
+    const styleCSS = fs.readFileSync(cssFilePath, 'utf8');
 
     const fullHtml = `
       <html>
         <head>
-          <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-          <link href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" rel="stylesheet">
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link
@@ -48,7 +60,6 @@ export class CardImageService {
           <main className="grid grid-cols-1 md:grid-cols-min-content-2 grid-rows-min-content items-end justify-items-center content-center justify-center gap-12 w-screen h-screen bg-cover bg-center bg-no-repeat bg-[url('dist/apps/backend/assets/blur.png')]">
             ${cardHtml}
           </main>
-          <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.js"></script>
         </body>
       </html>
     `;

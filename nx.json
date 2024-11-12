@@ -74,6 +74,14 @@
       ]
     }
   },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
   "generators": {
     "@nx/react": {
       "application": {

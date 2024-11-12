@@ -5,11 +5,39 @@
   "projectType": "application",
   "tags": [],
   "targets": {
+    "prebuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx run ui-components:build && nx run frontend:build:production"
+      }
+    },
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "outputPath": "dist/apps/backend",
+        "tsConfig": "apps/backend/tsconfig.app.json",
+        "main": "apps/backend/src/main.ts"
+      },
+      "dependsOn": [
+        "prebuild"
+      ]
+    },
+    "build-and-copy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cpx dist/apps/frontend/assets/*.css dist/apps/backend/assets/"
+      },
+      "dependsOn": [
+        "^ui-components:build",
+        "^frontend:build:production",
+        "build"
+      ]
+    },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "dependsOn": [
-        "build"
+        "build-and-copy"
       ],
       "options": {
         "buildTarget": "backend:build",
@@ -26,7 +54,7 @@
     },
     "docker-build": {
       "dependsOn": [
-        "build"
+        "build-and-copy"
       ],
       "command": "docker build -f apps/backend/Dockerfile . -t backend"
     }
