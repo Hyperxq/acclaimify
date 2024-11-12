@@ -40,7 +40,7 @@ export function FormComponent() {
 
     try {
       const response = await axios.post(`${apiUrl}/api/cards/generate`, formData, {
-        responseType: 'blob', // Ensures response is handled as binary data
+        responseType: 'blob',
       });
 
       const url = window.URL.createObjectURL(new Blob([response.data]));

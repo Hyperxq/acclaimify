@@ -13,13 +13,16 @@ import { join } from 'path';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'cloudflare') {
     app.enableCors({
       origin: [
-        'https://hyperxq.github.io/acclaimify',
+        'https://applaudify.pages.dev/',
+        'https://hyperxq.github.io/acclaimify/',
         'https://hyperxq.github.io',
       ],
-      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: false,
     });
   } else {
     app.enableCors(); // Enable CORS for all origins in development

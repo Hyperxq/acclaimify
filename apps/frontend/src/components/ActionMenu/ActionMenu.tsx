@@ -18,8 +18,12 @@ export const ActionMenu = (formData: Partial<AppreciationData>) => {
 
   const fetchResource = async (): Promise<Blob> => {
     const response = await axios.post(`${apiUrl}/api/cards/generate`, formData, {
-      responseType: 'blob', // Ensures response is handled as binary data
-    });
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        responseType: 'blob', // Ensures response is handled as binary data
+      });
     const data = await response.data;
     return data;
 

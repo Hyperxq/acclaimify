@@ -29,7 +29,7 @@ jobs:
         run: pnpm install
 
       - name: Build project
-        run: pnpm nx run acclaimify:build --configuration=cloudflare
+        run: pnpm nx run frontend:build --configuration=cloudflare
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
@@ -37,5 +37,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: 'acclaimify'
-          directory: './dist/apps/acclaimify'
+          directory: './dist/apps/frontend'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
