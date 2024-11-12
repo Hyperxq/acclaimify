@@ -20,7 +20,7 @@ COPY . .
 RUN pnpx nx run ui-components:build --verbose
 
 # Now build the backend app, which depends on the UI library
-RUN pnpx nx run backend:build:production --configuration=production --verbose
+RUN NODE_ENV=production pnpx nx run backend:build:production --verbose
 
 # Stage 2: Create a smaller image with only the build output
 FROM node:18-slim AS runner
