@@ -18,7 +18,9 @@ async function bootstrap() {
         'https://hyperxq.github.io/acclaimify/',
         'https://hyperxq.github.io',
       ],
-      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: false,
     });
   } else {
     app.enableCors(); // Enable CORS for all origins in development
