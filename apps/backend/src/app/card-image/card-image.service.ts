@@ -4,10 +4,9 @@ import * as ReactDOMServer from 'react-dom/server';
 import React from 'react';
 import * as fs from 'fs';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
-import path from 'path';
-import glob from 'glob';
-import { AppreciationData } from 'ui-components/src/lib/interfaces/data.interface';
-import { Card } from 'ui-components/src/lib/card/Card';
+import { join, resolve } from 'path';
+import { AppreciationData, Card } from '@acclaimify/ui-components';
+import { readFileSync } from 'fs';
 
 @Injectable()
 export class CardImageService {
@@ -30,22 +29,15 @@ export class CardImageService {
       React.createElement(Card, cardData)
     );
 
-    const cssDir = path.join(__dirname, 'assets', 'css');
-
-    const cssPattern = path.join(cssDir, '*.css');
-
-    const files = glob.sync(cssPattern);
-
-    if (files.length === 0) {
-      console.error('No matching CSS file found');
-      return '';
-    }
-
-    const cssFilePath = files[0];
-    console.log(`Found CSS file: ${cssFilePath}`);
-
-    const styleCSS = fs.readFileSync(cssFilePath, 'utf8');
-
+    // const styleCSS = fs.readFileSync(
+    //   'dist/ui-components/src/index.css',
+    //   'utf8'
+    // );
+    const cssFilePath = getCSSFilePath();
+    const styleCSS = readFileSync(cssFilePath, 'utf-8');
+    // const jsFiles = getJSFilePath().map(
+    //   (x) => `<script type="module">${readFileSync(x, 'utf-8')}</script>`
+    // );
     const fullHtml = `
       <html>
         <head>
@@ -54,12 +46,16 @@ export class CardImageService {
           <link
             href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet">
+          <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+          <link href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" rel="stylesheet">
+
            <style>${styleCSS}</style>
         </head>
         <body style="height: min-content;">
           <main className="grid grid-cols-1 md:grid-cols-min-content-2 grid-rows-min-content items-end justify-items-center content-center justify-center gap-12 w-screen h-screen bg-cover bg-center bg-no-repeat bg-[url('dist/apps/backend/assets/blur.png')]">
             ${cardHtml}
           </main>
+         <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.js"></script>
         </body>
       </html>
     `;
@@ -98,4 +94,24 @@ export class CardImageService {
       throw error;
     }
   }
+}
+
+function getCSSFilePath(): string {
+  const assetsDir = resolve(__dirname, 'assets');
+  const files = fs.readdirSync(assetsDir);
+  const cssFile = files.find((file) => file.endsWith('.css'));
+
+  if (!cssFile) {
+    throw new Error('CSS file not found in assets folder.');
+  }
+
+  return join(assetsDir, cssFile);
+}
+
+function getJSFilePath(): string[] {
+  const assetsDir = resolve(__dirname, 'assets');
+  const files = fs.readdirSync(assetsDir);
+  const jsFiles = files.filter((file) => file.endsWith('.js'));
+
+  return (jsFiles ?? []).map((x) => join(assetsDir, x));
 }

@@ -2,6 +2,9 @@
   "name": "backend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/backend/src",
+  "implicitDependencies": [
+    "!ui-components"
+  ],
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -11,27 +14,17 @@
         "command": "nx run ui-components:build && nx run frontend:build:production"
       }
     },
-    "build": {
-      "executor": "@nx/js:tsc",
-      "options": {
-        "outputPath": "dist/apps/backend",
-        "tsConfig": "apps/backend/tsconfig.app.json",
-        "main": "apps/backend/src/main.ts"
-      },
-      "dependsOn": [
-        "prebuild"
-      ]
-    },
     "build-and-copy": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "cpx dist/apps/frontend/assets/*.css dist/apps/backend/assets/"
-      },
-      "dependsOn": [
-        "^ui-components:build",
-        "^frontend:build:production",
-        "build"
-      ]
+        "command": "nx run backend:build:production && nx run backend:postbuild"
+      }
+    },
+    "postbuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cpx dist/apps/frontend/assets/*.{css,js} dist/apps/backend/assets/"
+      }
     },
     "serve": {
       "executor": "@nx/js:node",
@@ -45,10 +38,10 @@
       },
       "configurations": {
         "development": {
-          "buildTarget": "backend:build:development"
+          "buildTarget": "backend:build-and-copy"
         },
         "production": {
-          "buildTarget": "backend:build:production"
+          "buildTarget": "backend:build-and-copy"
         }
       }
     },

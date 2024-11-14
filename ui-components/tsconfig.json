@@ -15,6 +15,10 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
 
+    "declaration": true,
+    "composite": true,
+    "declarationMap": true,
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
