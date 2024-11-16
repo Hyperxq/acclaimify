@@ -1,17 +1,19 @@
 import React from 'react';
 import { AppreciationData } from "../interfaces/data.interface";
 import { CardContainer } from '../cardContainer';
+import '../../index.css';
 
 export const Card = ({
   achieverName,
   position,
   projectName,
   dateOfAchievement = 'January 10, 2024',
-  achievementSummary
-}: Partial<AppreciationData>) => {
-
+  achievementSummary,
+  skipBorders = false
+}: Partial<AppreciationData> & { skipBorders?: boolean }) => {
+  const classList = "relative overflow-clip grid content-center justify-center w-[686px] h-[504px]";
   return (
-    <CardContainer id='card' classList="relative overflow-clip grid content-center justify-center w-[686px] h-[504px]">
+    <CardContainer id='card' skipBorders={skipBorders} classList={classList}>
       <div className='bg-white w-[545px] h-[425px] flex flex-col content-center justify-items-center items-center justify-center'>
         <h3 className='lato-regular w-fit text-[23px]'>Certificate of achievement</h3>
         <h2 className='lato-regular w-fit text-[42px]'>{achieverName ?? 'Daniel Ramírez'}</h2>
@@ -21,7 +23,7 @@ export const Card = ({
 
         <p className='lato-regular w-fit break-words max-w-[337px] pt-[23px] text-[16px] text-[#6D6D6D] text-center'>{achievementSummary ?? 'Thanks for everything'}</p>
 
-        <svg className='absolute top-0 right-0' width="687" height="528" viewBox="0 0 687 528" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className='absolute top-0 right-0' width="100%" height="100%" viewBox="0 0 687 528" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="46.2069" cy="564.635" rx="115.016" ry="442.971" transform="rotate(-48.6012 46.2069 564.635)" fill="#96E8DA" />
           <ellipse cx="651.381" cy="101.532" rx="139.7" ry="183.674" transform="rotate(-7.87761 651.381 101.532)" fill="#C19BFF" />
           <circle cx="444.27" cy="54.756" r="2.48891" fill="#5800FF" />

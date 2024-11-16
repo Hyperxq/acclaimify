@@ -35,5 +35,5 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/index.ts"
-  ]
+, "postcss.config.js"  ]
 }

@@ -7,6 +7,7 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
   content: [
     join(__dirname, 'src/**/*.{js,jsx,ts,tsx,html}'),
+    join(__dirname, '../../dist/ui-components/**/*.js'),
     './node_modules/flowbite-react/**/*.js',
     ...createGlobPatternsForDependencies(__dirname), flowbite.content()
   ],

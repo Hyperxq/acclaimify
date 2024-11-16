@@ -24,20 +24,17 @@ export class CardImageService {
       deviceScaleFactor: 3, // Increase resolution
     });
 
-    // Use ReactDOMServer to render the Card component to a static HTML string
-    const cardHtml = ReactDOMServer.renderToStaticMarkup(
-      React.createElement(Card, cardData)
-    );
-
-    // const styleCSS = fs.readFileSync(
-    //   'dist/ui-components/src/index.css',
-    //   'utf8'
-    // );
+    // Read the compiled CSS file
     const cssFilePath = getCSSFilePath();
     const styleCSS = readFileSync(cssFilePath, 'utf-8');
-    // const jsFiles = getJSFilePath().map(
-    //   (x) => `<script type="module">${readFileSync(x, 'utf-8')}</script>`
-    // );
+
+    const imagePath = resolve(__dirname, 'assets', 'blur.png');
+    const base64Image = getBase64Image(imagePath);
+
+    // Use ReactDOMServer to render the Card component to a static HTML string
+    const cardHtml = ReactDOMServer.renderToStaticMarkup(
+      React.createElement(Card, { ...cardData, skipBorders: true })
+    );
     const fullHtml = `
       <html>
         <head>
@@ -49,10 +46,11 @@ export class CardImageService {
           <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
           <link href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" rel="stylesheet">
 
-           <style>${styleCSS}</style>
+
+          <style>${styleCSS}</style>
         </head>
         <body style="height: min-content;">
-          <main className="grid grid-cols-1 md:grid-cols-min-content-2 grid-rows-min-content items-end justify-items-center content-center justify-center gap-12 w-screen h-screen bg-cover bg-center bg-no-repeat bg-[url('dist/apps/backend/assets/blur.png')]">
+          <main style="background-image: url('${base64Image}');" className="grid grid-cols-1 md:grid-cols-min-content-2 grid-rows-min-content items-end justify-items-center content-center justify-center gap-12 w-screen h-screen bg-cover bg-center bg-no-repeat  ">
             ${cardHtml}
           </main>
          <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.js"></script>
@@ -108,10 +106,7 @@ function getCSSFilePath(): string {
   return join(assetsDir, cssFile);
 }
 
-function getJSFilePath(): string[] {
-  const assetsDir = resolve(__dirname, 'assets');
-  const files = fs.readdirSync(assetsDir);
-  const jsFiles = files.filter((file) => file.endsWith('.js'));
-
-  return (jsFiles ?? []).map((x) => join(assetsDir, x));
+function getBase64Image(filePath: string): string {
+  const imageBuffer = readFileSync(filePath);
+  return `data:image/png;base64,${imageBuffer.toString('base64')}`;
 }

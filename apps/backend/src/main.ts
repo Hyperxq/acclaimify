@@ -13,7 +13,10 @@ import { join } from 'path';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
-  if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'cloudflare') {
+  if (
+    process.env.NODE_ENV === 'production' ||
+    process.env.NODE_ENV === 'cloudflare'
+  ) {
     app.enableCors({
       origin: [
         'https://applaudify.pages.dev/',
