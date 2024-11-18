@@ -32,7 +32,7 @@
       "@services": ["apps/frontend/src/services/index.ts"],
       "@types": ["apps/frontend/src/types/index.ts"],
       "@utilities": ["apps/frontend/src/utilities/index.ts"],
-      "@acclaimify/ui-components": ["dist/ui-components/index.d.ts"]
+      "@acclaimify/ui-components": ["ui-components/src/index.ts"]
     },
   },
   "files": [],

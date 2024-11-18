@@ -7,7 +7,7 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
   content: [
     join(__dirname, 'src/**/*.{js,jsx,ts,tsx,html}'),
-    join(__dirname, '../../dist/ui-components/**/*.js'),
+    join(__dirname, '../../dist/ui-components/**/*.{js,jsx,ts,tsx,html}'),
     './node_modules/flowbite-react/**/*.js',
     ...createGlobPatternsForDependencies(__dirname), flowbite.content()
   ],
@@ -76,6 +76,13 @@ module.exports = {
         },
         inputBorder: '#D0D5DD',
         inputBg: '#FFFFFF',
+        screens: {
+          xl: '1600px',
+          lg: '1440px',
+          md: '1024px',
+          sm: '768px',
+          xs: '480px',
+        },
       },
       keyframes: {
         fadeIn: {
@@ -107,5 +114,11 @@ module.exports = {
         }
       )
     }),
+  ],
+  safelist: [
+    {
+      pattern: /^(w|h|text|pt|p|max-h|m|max-w)-\[\d+(\.\d+)?vw\]$/,
+      variants: ['md', 'lg'],
+    },
   ],
 };
