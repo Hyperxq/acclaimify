@@ -2,6 +2,7 @@ import React from 'react';
 import { AppreciationData } from "../interfaces/data.interface";
 import { CardContainer } from '../cardContainer';
 import { toResponsive } from '../utils/to-responsive';
+import '../../index.css';
 
 export const Card = ({
   achieverName,
