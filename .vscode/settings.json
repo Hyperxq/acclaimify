@@ -1,0 +1,149 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "Fira Code",
+    "editor.rulers": [80],
+    "editor.snippetSuggestions": "top",
+    "editor.suggest.localityBonus": true,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.suggestSelection": "recentlyUsed",
+      "editor.suggest.showKeywords": false
+    },
+    "editor.renderWhitespace": "boundary",
+    "files.defaultLanguage": "{activeEditorLanguage}",
+    "javascript.validate.enable": false,
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/coverage": true,
+      "**/dist": true,
+      "**/build": true,
+      "**/.build": true,
+      "**/.gh-pages": true
+    },
+    "terminal.external.osxExec": "Xterm2.app",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontFamily": "ProFont For Powerline",
+    "workbench.productIconTheme": "fluent-icons",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "explorer.compactFolders": false,
+    "editor.fontLigatures": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "security.workspace.trust.untrustedFiles": "open",
+    "prettier.printWidth": 200,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "git.autofetch": true,
+    "vscode-pets.petColor": "black",
+    "vscode-pets.position": "explorer",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "workbench.list.smoothScrolling": true,
+    "editor.smoothScrolling": true,
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "oneDarkPro.italic": true,
+    "oneDarkPro.vivid": true,
+    "telemetry.telemetryLevel": "off",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.esLint": "explicit"
+    },
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+    "eslint.options": {
+      "env": {
+        "browser": true,
+        "jest/globals": true,
+        "es6": true
+      },
+      "parserOptions": {
+        "ecmaVersion": 2019,
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      },
+      "rules": {
+        "no-debugger": "off"
+      }
+    },
+    "vscode-pets.petSize": "medium",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "rapidapi.terminalLink.enabled": false,
+    "workbench.colorCustomizations": {},
+    "editor.stickyScroll.enabled": true,
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "quokka.showStartViewOnFeatureRelease": false,
+    "terminal.integrated.allowMnemonics": true,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cursorStyle": "line",
+    "window.zoomLevel": 2,
+    "terminal.integrated.autoReplies": {},
+    "editor.linkedEditing": true,
+    "editor.fontVariations": false,
+    "json.schemaDownload.enable": true,
+    "autoprefixer.formatOnSave": true,
+    "files.autoSaveDelay": 0,
+    "notebook.formatOnSave.enabled": true,
+    "nxConsole.showNodeVersionOnStartup": false,
+    "[rust]": {
+      "editor.defaultFormatter": "jinxdash.prettier-rust"
+    },
+    "editor.formatOnSaveMode": "modifications",
+    "files.autoSaveWhenNoErrors": true,
+    "files.autoSave": "afterDelay",
+    "editor.formatOnPaste": false,
+    "breadcrumbs.enabled": true,
+    "grunt.autoDetect": "off",
+    "gulp.autoDetect": "off",
+    "editor.largeFileOptimizations": false,
+    "explorer.fileNesting.enabled": true,
+    "terminal.integrated.env.osx": {},
+    "console-ninja.featureSet": "Community",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "yaml.schemas": {
+      "file:///Users/danramir6/.vscode/extensions/atlassian.atlascode-3.0.13/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "gitlens.views.branches.branches.layout": "list",
+    "explorer.confirmPasteNative": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "terminal.explorerKind": "external",
+    "terminal.external.linuxExec": "Warp",
+    "liveServer.settings.donotVerifyTags": true,
+    "atlascode.jira.lastCreateSiteAndProject": {
+      "siteId": "",
+      "projectKey": ""
+    },
+    "cSpell.userWords": [
+      "attemp",
+      "innecesary"
+    ],
+    "sonarlint.focusOnNewCode": false,
+    "security.promptForLocalFileProtocolHandling": false,
+    "editor.cursorBlinking": "expand",
+    "workbench.sideBar.location": "right",
+    "window.commandCenter": false,
+    "workbench.activityBar.location": "top",
+    "window.customTitleBarVisibility": "windowed",
+    "oneDarkPro.bold": true,
+    "markdown-preview-enhanced.previewTheme": "one-dark.css",
+    "workbench.editor.customLabels.patterns": {
+      "**/hooks/**": "${filename} - Hook ",
+      "**/components/**": "${filename} - ${dirname} - Component"
+    },
+    "explorer.fileNesting.patterns": {
+      ".env": ".env*"
+    },
+  }
+  
