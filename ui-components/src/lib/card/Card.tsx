@@ -1,7 +1,6 @@
 import React from 'react';
 import { AppreciationData } from "../interfaces/data.interface";
 import { CardContainer } from '../cardContainer';
-import { toResponsive } from '../utils/to-responsive';
 import '../../index.css';
 
 export const Card = ({
@@ -12,17 +11,17 @@ export const Card = ({
   achievementSummary,
   skipBorders = false
 }: Partial<AppreciationData> & { skipBorders?: boolean }) => {
-  const classList = `relative overflow-clip grid content-center justify-center w-[686px] h-[504px]`;
+  const classList = "relative overflow-clip grid content-center justify-center w-[686px] h-[504px]";
   return (
     <CardContainer id='card' skipBorders={skipBorders} classList={classList}>
-      <div className={`bg-white w-[545px] h-[425px] flex flex-col content-center justify-items-center items-center justify-center`}>
-        <h3 className={`lato-regular w-fit h-fit text-[23px]`}>Certificate of achievement</h3>
-        <h2 className={`lato-regular w-fit text-[42px]`}>{achieverName ?? 'Daniel Ramírez'}</h2>
-        <h4 className={`lato-regular w-fit text-[20px] capitalize`}>{position ?? 'Fullstack Web Development'}</h4>
+      <div className='bg-white w-[545px] h-[425px] flex flex-col content-center justify-items-center items-center justify-center'>
+        <h3 className='lato-regular w-fit text-[23px]'>Certificate of achievement</h3>
+        <h2 className='lato-regular w-fit text-[42px]'>{achieverName ?? 'Daniel Ramírez'}</h2>
+        <h4 className='lato-regular w-fit text-[20px] capitalize'>{position ?? 'Fullstack Web Development'}</h4>
 
-        <h5 className={`lato-regular w-fit text-[11px] pt-[9px]`}>{projectName ? projectName + ',' : ''} {dateOfAchievement}</h5>
+        <h5 className='lato-regular w-fit text-[11px] pt-[9px]'>{projectName ? projectName + ',' : ''} {dateOfAchievement}</h5>
 
-        <p className={`lato-regular w-fit break-words max-w-[337px] pt-[23px] text-[16px] text-[#6D6D6D] text-center`}>{achievementSummary ?? 'Thanks for everything'}</p>
+        <p className='lato-regular w-fit break-words max-w-[337px] pt-[23px] text-[16px] text-[#6D6D6D] text-center'>{achievementSummary ?? 'Thanks for everything'}</p>
 
         <svg className='absolute top-0 right-0' width="100%" height="100%" viewBox="0 0 687 528" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="46.2069" cy="564.635" rx="115.016" ry="442.971" transform="rotate(-48.6012 46.2069 564.635)" fill="#96E8DA" />
@@ -119,7 +118,7 @@ export const Card = ({
         </svg>
 
 
-        <svg className={`absolute right-[81px] bottom-[62px]`} width="80" height="111" viewBox="0 0 80 111" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className='absolute right-[81px] bottom-[62px]' width="80" height="111" viewBox="0 0 80 111" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.8">
             <path d="M33.9632 70.1464L45.9221 110.295L55.7452 96.2L71.9757 102.179L59.1625 63.3119L33.9632 70.1464Z" fill="#CD3414" />
             <path d="M47.6143 107.867L48.4311 106.695L48.6889 107.54L47.6143 107.867Z" fill="#FFDD7D" />
