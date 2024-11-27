@@ -16,7 +16,7 @@ export const Card = ({
     <CardContainer id='card' skipBorders={skipBorders} classList={classList}>
       <div className={`bg-white w-[545px] h-[425px] flex flex-col content-center justify-items-center items-center justify-center`}>
         <h3 className={`lato-regular w-fit h-fit text-[23px]`}>Certificate of achievement</h3>
-        <h2 className={`lato-regular w-fit text-[42px] ${toResponsive('text', 42)}`}>{achieverName ?? 'Daniel Ramírez'}</h2>
+        <h2 className={`lato-regular w-fit text-[42px]`}>{achieverName ?? 'Daniel Ramírez'}</h2>
         <h4 className={`lato-regular w-fit text-[20px] capitalize`}>{position ?? 'Fullstack Web Development'}</h4>
 
         <h5 className={`lato-regular w-fit text-[11px] pt-[9px]`}>{projectName ? projectName + ',' : ''} {dateOfAchievement}</h5>
