@@ -14,14 +14,14 @@ export const Card = ({
   const classList = `relative overflow-clip grid content-center justify-center w-[686px] h-[504px]`;
   return (
     <CardContainer id='card' skipBorders={skipBorders} classList={classList}>
-      <div className={`bg-white ${toResponsive('w', 545)} ${toResponsive('h', 425)} flex flex-col content-center justify-items-center items-center justify-center`}>
-        <h3 className={`lato-regular w-fit h-fit ${toResponsive('text', 23)}`}>Certificate of achievement</h3>
+      <div className={`bg-white w-[545px] h-[425px] flex flex-col content-center justify-items-center items-center justify-center`}>
+        <h3 className={`lato-regular w-fit h-fit text-[23px]`}>Certificate of achievement</h3>
         <h2 className={`lato-regular w-fit text-[42px] ${toResponsive('text', 42)}`}>{achieverName ?? 'Daniel Ramírez'}</h2>
-        <h4 className={`lato-regular w-fit  capitalize`}>{position ?? 'Fullstack Web Development'}</h4>
+        <h4 className={`lato-regular w-fit text-[20px] capitalize`}>{position ?? 'Fullstack Web Development'}</h4>
 
-        <h5 className={`lato-regular w-fit ${toResponsive('text', 11)} ${toResponsive('pt', 9)}`}>{projectName ? projectName + ',' : ''} {dateOfAchievement}</h5>
+        <h5 className={`lato-regular w-fit text-[11px] pt-[9px]`}>{projectName ? projectName + ',' : ''} {dateOfAchievement}</h5>
 
-        <p className={`lato-regular w-fit break-words ${toResponsive('max-w', 337)} ${toResponsive('pt', 23)} ${toResponsive('text', 16)} text-[#6D6D6D] text-center`}>{achievementSummary ?? 'Thanks for everything'}</p>
+        <p className={`lato-regular w-fit break-words max-w-[337px] pt-[23px] text-[16px] text-[#6D6D6D] text-center`}>{achievementSummary ?? 'Thanks for everything'}</p>
 
         <svg className='absolute top-0 right-0' width="100%" height="100%" viewBox="0 0 687 528" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="46.2069" cy="564.635" rx="115.016" ry="442.971" transform="rotate(-48.6012 46.2069 564.635)" fill="#96E8DA" />
